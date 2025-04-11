@@ -1,5 +1,6 @@
 import './App.css'
 import { useReducer } from 'react'
+import Todo from './Todo/Todo'
 
 // Step 3: Write reducer function
 function reducer(state, action) {
@@ -36,6 +37,8 @@ function App() {
       <button onClick={Incrementt}>Increment</button>
       <br /> <br />
       <button onClick={Decrementt}>Decrement</button>
+
+      <Todo/>
     </>
   )
 }
