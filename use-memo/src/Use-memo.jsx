@@ -34,7 +34,8 @@ function UseMemo() {
   // 👇 useMemo memoizes the result of `calculateSlowValue`
   // This prevents `slow(2)` from being re-run on every render unless `count` changes
   // Even though the result is unused, it still demonstrates the optimization concept
-  useMemo(calculateSlowValue, [count]);
+  // Memoize the result — only recalculates when `count` changes
+  const memoizedValue = useMemo(calculateSlowValue, [count]);
 
   // 👇 JSX returned by the component to render on the screen
   return (
@@ -44,6 +45,8 @@ function UseMemo() {
 
       {/* Display current value of `count` */}
       <h2>{count}</h2>
+       <h3>Memoized Slow Value: {memoizedValue}</h3>
+      
 
       {/* Button that triggers the click handler to decrement the count */}
       <button onClick={click}>Decrement</button>
